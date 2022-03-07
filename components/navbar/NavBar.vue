@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav v-if="showNavBar" class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="#">Navbar</a>
       <button
@@ -34,6 +34,14 @@ export default {
     return {
       navItems: ["credit", "debit", "transactions"],
     };
+  },
+  methods: {},
+  computed: {
+    showNavBar() {
+      if (this.$route.path !== "/") {
+        return true;
+      }
+    },
   },
 };
 </script>

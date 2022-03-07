@@ -1,17 +1,17 @@
 <template>
-  <div>
-    <NavBar />
-    <div class="container py-4">
-      <h2>Dashboard</h2>
-    </div>
+  <div class="container py-4">
+    <h2>Dashboard</h2>
   </div>
 </template>
 
 <script>
-import NavBar from "../components/navbar/NavBar.vue";
 export default {
   name: "Dashboard",
-  components: { NavBar },
+  head() {
+    return {
+      title: "Dashboard",
+    };
+  },
 };
 </script>
 
