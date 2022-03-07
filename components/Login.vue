@@ -39,6 +39,7 @@ export default {
           data: loginInfo,
         });
         this.$auth.setUser(res.data.iam);
+        sessionStorage.user = JSON.stringify(this.$auth.user);
         this.$router.push("/dashboard");
       } catch {
         this.loginError = true;

@@ -10,5 +10,6 @@ export default {
   name: "IndexPage",
   components: { Login },
   mounted() {},
+  computed: {},
 };
 </script>
