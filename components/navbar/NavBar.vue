@@ -1,7 +1,9 @@
 <template>
   <nav v-if="showNavBar" class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <nuxt-link class="navbar-brand" :to="{ name: 'dashboard' }"
+        >Navbar</nuxt-link
+      >
       <button
         class="navbar-toggler"
         type="button"
@@ -19,6 +21,7 @@
         </div>
       </div>
       <div class="ml-auto">
+        <span class="px-3">{{ getUser.email }}</span>
         <button class="btn btn-danger" @click="logout">Logout</button>
       </div>
     </div>
@@ -33,6 +36,7 @@ export default {
   data() {
     return {
       navItems: ["credit", "debit", "transactions"],
+      user: "",
     };
   },
   methods: {
@@ -47,6 +51,13 @@ export default {
       if (this.$route.path !== "/") {
         return true;
       }
+    },
+    getUser() {
+      this.user =
+        sessionStorage.user === undefined
+          ? ""
+          : JSON.parse(sessionStorage.user);
+      return this.user;
     },
   },
 };
