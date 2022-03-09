@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="ml-auto">
-        <button class="btn btn-danger">Logout</button>
+        <button class="btn btn-danger" @click="logout">Logout</button>
       </div>
     </div>
   </nav>
@@ -35,7 +35,13 @@ export default {
       navItems: ["credit", "debit", "transactions"],
     };
   },
-  methods: {},
+  methods: {
+    logout() {
+      sessionStorage.clear();
+      this.$auth.isloggedIn = false;
+      this.$router.push("/");
+    },
+  },
   computed: {
     showNavBar() {
       if (this.$route.path !== "/") {
