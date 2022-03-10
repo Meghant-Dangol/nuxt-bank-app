@@ -42,6 +42,7 @@ export default {
   methods: {
     logout() {
       this.$auth.$storage.setUniversal("loggedIn", false);
+      this.$auth.$storage.removeUniversal("user");
       window.location.reload();
     },
   },
