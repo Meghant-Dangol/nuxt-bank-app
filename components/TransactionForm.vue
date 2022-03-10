@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     transactionClick(type) {
-      const user = JSON.parse(sessionStorage.user);
+      const user = this.$auth.$storage.getUniversal("user");
       let transactions =
         localStorage.transactions === undefined
           ? []

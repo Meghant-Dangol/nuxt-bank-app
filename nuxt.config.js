@@ -59,10 +59,17 @@ export default {
         },
         endpoints: {
           login: { url: "/login", method: "post" },
-          logout: { url: "/logout", method: "post" },
+          logout: { url: "/", method: "post" },
         },
         autoFetchUser: false,
       },
     },
+    redirect: {
+      login: "/",
+      home: "/dashboard",
+    },
+  },
+  router: {
+    middleware: ["default"],
   },
 };

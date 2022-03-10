@@ -41,9 +41,8 @@ export default {
   },
   methods: {
     logout() {
-      sessionStorage.clear();
-      this.$auth.isloggedIn = false;
-      this.$router.push("/");
+      this.$auth.$storage.setUniversal("loggedIn", false);
+      window.location.reload();
     },
   },
   computed: {
@@ -54,9 +53,9 @@ export default {
     },
     getUser() {
       this.user =
-        sessionStorage.user === undefined
+        this.$auth.$storage.getUniversal("user") === null
           ? ""
-          : JSON.parse(sessionStorage.user);
+          : this.$auth.$storage.getUniversal("user");
       return this.user;
     },
   },

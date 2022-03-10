@@ -39,10 +39,10 @@ export default {
           data: loginInfo,
         });
         this.$auth.setUser(res.data.iam);
-        sessionStorage.user = JSON.stringify(this.$auth.user);
-        this.$auth.isLoggedIn = true;
-        this.$router.push("/dashboard");
-      } catch {
+        this.$auth.$storage.setUniversal("user", res.data.iam, true);
+        this.$auth.$storage.setUniversal("loggedIn", true);
+        this.$router.push("dashboard");
+      } catch (error) {
         this.loginError = true;
         this.password = "";
       }
