@@ -2,7 +2,7 @@
   <nav v-if="showNavBar" class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <nuxt-link class="navbar-brand" :to="{ name: 'dashboard' }"
-        >Navbar</nuxt-link
+        >Bank App</nuxt-link
       >
       <button
         class="navbar-toggler"
